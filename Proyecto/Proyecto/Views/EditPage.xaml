@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Proyecto.Views.EditPage"
+    Title="Editar Tarea">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="Guardar"
+            Clicked="BtnGuardar_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <Label
+                Text="Estado"
+                FontSize="Medium" />
+
+            <Picker
+                x:Name="estadoPicker">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Por hacer</x:String>
+                        <x:String>En progreso</x:String>
+                        <x:String>Finalizada</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+                <Picker.SelectedItem>
+                    <x:String>{Binding TaskToEdit.State}</x:String>
+                </Picker.SelectedItem>
+            </Picker>
+
+            <Label
+                Text="Nombre"
+                FontSize="Medium" />
+
+            <Entry
+                x:Name="nombre"
+                Text="{Binding TaskToEdit.Name}" />
+
+            <Label
+                Text="Descripción"
+                FontSize="Medium" />
+
+            <Editor
+                x:Name="descripcion"
+                HeightRequest="120"
+                Text="{Binding TaskToEdit.Description}" />
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+

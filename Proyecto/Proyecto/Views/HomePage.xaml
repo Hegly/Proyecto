@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Proyecto.Views.HomePage"
+    Title="ToDo List">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="Agregar"
+            Clicked="ToolbarItem_Clicked_1" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ListView
+            x:Name="lista_tareas"
+            HasUnevenRows= "True"
+            ItemTapped="ListaTareas_ItemTapped">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+                        <ViewCell.ContextActions>
+                            <MenuItem
+                                x:Name="BtnDelete"
+                                Text="Eliminar"
+                                IsDestructive="True"
+                                Clicked="BtnDelete_Clicked"
+                                CommandParameter="{Binding .}"></MenuItem>
+                        </ViewCell.ContextActions>
+
+                        <StackLayout Padding="15,0">
+                            <Label
+                                Text="{Binding Name }"
+                                FontSize="Medium"
+                                TextColor= "{StaticResource colorPrimary}" ></Label>
+
+                            <Label
+                                Text="{Binding Description}"></Label>
+
+                            <Label
+                                Text="{Binding State}"
+                                FontSize="Small"
+                                TextColor="Gray" />
+                        </StackLayout>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
+
